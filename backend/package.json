@@ -1,5 +1,16 @@
 {
   "dependencies": {
-    "express": "^4.19.2"
-  }
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "type": "module",
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Nitish",
+  "license": "ISC",
+  "description": ""
 }
