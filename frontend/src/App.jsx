@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
+import useFetchData from "./hooks/useFetchData";
 
 const url = "http://localhost:3000";
 
 const App = () => {
-  const [data, setData] = useState();
+  const { data, loading, error } = useFetchData(url);
 
-  useEffect(() => {
-    fetch(`${url}/`)
-      .then((res) => res.text())
-      .then((data) => setData(data))
-      .catch((err) => console.log("Error fetching url:", err));
-  }, []);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return <div>{data}</div>;
 };
