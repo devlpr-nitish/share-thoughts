@@ -4,6 +4,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { connectToDB } from "./src/mongooseConfig/mongoose.js";
 import userRouter from "./src/features/users/users.routes.js";
+import thoughtRouter from "./src/features/thoughts/thoughts.routes.js";
+import jwtAuth from "./src/middlewares/jwt.middleware.js";
 
 const server = express();
 
@@ -13,8 +15,13 @@ server.use(cors());
 // receive data from client
 server.use(bodyParser.json());
 
-//routes
+//users route
 server.use("/api/users", userRouter);
+//thought route
+server.use("/api/thoughts", jwtAuth, thoughtRouter);
+
+
+
 
 server.get("/", (req, res, next) => {
   res.status(200).send("Hello welcome to Share Thoughts");

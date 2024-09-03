@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { UserModel, userSchema } from "./users.schema.js";
+
+import { UserModel } from "./users.schema.js";
 import ApplicationError from "../../ErrorHandler/errorHandler.js";
 
 
@@ -12,7 +12,7 @@ export default class UserRepository{
             return user;
         } catch (error) {
             console.log(error);
-            throw new ApplicationError("Somethin went wrong with database");
+            throw new ApplicationError("Somethin went wrong with database", 500);
         }
     }
 
@@ -22,7 +22,7 @@ export default class UserRepository{
             return await UserModel.findOne({email});
         } catch (error) {
             console.log(error);
-            throw new ApplicationError("Somethin went wrong with database");
+            throw new ApplicationError("Somethin went wrong with database" ,500);
         }
     }
     
