@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { UserModel } from './users.schema.js';
 import UserRepository from './users.repository.js';
-
+import jwt from 'jsonwebtoken';
 
 export default class UserController {
 
@@ -25,6 +25,32 @@ export default class UserController {
 
             const signupedUser = await this.userRepository.signup(newUser);
             return res.status(200).send(signupedUser);
+
+        } catch (error) {
+
+            console.log(error);
+            return res.status(200).send("something went wrong");
+        }
+    }
+    async signin(req, res, next) {
+
+        try {
+            const { email, password } = req.body;
+
+            const userExists = await this.userRepository.findByEmail(email);
+            if(!userExists){
+                return res.status(200).send("Incorrect Credentials");
+            }else{
+                
+                // match password
+                const match = await bcrypt.compare(password, userExists.password);
+                if(!match){
+                    return res.status(200).send("Incorrect Credentials");
+                }else{
+                    const jwtToken  = await jwt.sign({ email: userExists.email, userID: userExists._id }, process.env.JWT_SECRET, {expiresIn: '1d'});                  
+                    return res.status(200).send(jwtToken);                   
+                }
+            }
 
         } catch (error) {
             console.log(error);
