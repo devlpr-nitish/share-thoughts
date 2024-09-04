@@ -35,7 +35,6 @@ export default class ThoughtsController {
     async getthoughts(req, res, next) {
         try {
             const userID = req.userID;
-
             const allThoughts = await this.thoughtRepository.get(userID);
             return res.status(200).send(allThoughts);
         } catch (error) {
