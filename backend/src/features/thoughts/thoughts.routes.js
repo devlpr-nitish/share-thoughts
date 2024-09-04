@@ -8,5 +8,8 @@ const thoughtController = new ThoughtsController();
 thoughtRouter.post("/addthought", (req,res,next)=>{
     thoughtController.addThought(req,res,next);
 })
+thoughtRouter.get("/getallthoughts", (req,res,next)=>{
+    thoughtController.getthoughts(req,res,next);
+})
 
 export default thoughtRouter;
