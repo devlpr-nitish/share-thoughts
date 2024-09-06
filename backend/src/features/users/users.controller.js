@@ -39,13 +39,13 @@ export default class UserController {
 
             const userExists = await this.userRepository.findByEmail(email);
             if(!userExists){
-                return res.status(200).send("Incorrect Credentials");
+                return res.status(400).send("Incorrect Credentials");
             }else{
                 
                 // match password
                 const match = await bcrypt.compare(password, userExists.password);
                 if(!match){
-                    return res.status(200).send("Incorrect Credentials");
+                    return res.status(400).send("Incorrect Credentials");
                 }else{
                     const jwtToken  = await jwt.sign({ email: userExists.email, userID: userExists._id }, process.env.JWT_SECRET, {expiresIn: '1d'});                  
                     return res.status(200).send(jwtToken);                   

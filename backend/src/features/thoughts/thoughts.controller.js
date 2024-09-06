@@ -42,4 +42,21 @@ export default class ThoughtsController {
             return res.status(200).send("something went wrong");
         }
     }
+
+    async likeThought(req, res, next) {
+        try {
+            const userID = req.userID;
+            const { thoughtID } = req.query;
+            let like = false;
+            const liked = await this.thoughtRepository.like(userID, thoughtID, like);
+            if (liked) { 
+                return res.status(200).send("Thought liked successfully");
+            } else {
+                return res.status(200).send("Thought disliked successfully");
+            }
+        } catch (error) {
+            console.log(error);
+            return res.status(200).send("something went wrong");
+        }
+    }
 }

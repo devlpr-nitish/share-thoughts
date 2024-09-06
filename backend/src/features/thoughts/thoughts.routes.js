@@ -11,5 +11,8 @@ thoughtRouter.post("/addthought", (req,res,next)=>{
 thoughtRouter.get("/getallthoughts", (req,res,next)=>{
     thoughtController.getthoughts(req,res,next);
 })
+thoughtRouter.post("/like", (req,res,next)=>{
+    thoughtController.likeThought(req,res,next);
+})
 
 export default thoughtRouter;
