@@ -6,7 +6,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-import { backendUrl } from "../../store/atoms/atom";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
