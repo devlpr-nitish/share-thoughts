@@ -3,9 +3,9 @@ import { redirect } from "react-router-dom";
 import useFetchData from "./hooks/useFetchData";
 import AppRoutes from "./routes/AppRoutes";
 
-import { backendUrl } from "./store/atoms/atom";
-
 const App = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const token = localStorage.getItem("token");
 
   const { /* data */ loading, error } = useFetchData(backendUrl);
