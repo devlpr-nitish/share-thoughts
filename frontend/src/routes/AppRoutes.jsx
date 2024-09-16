@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, createBrowserRouter } from "react-router-dom";
 
 // import Signin from "../pages/Signin/Signin";
 const Signin = lazy(() => import("../pages/Signin/Signin"));
@@ -17,5 +17,7 @@ const AppRoutes = () => {
     </Suspense>
   );
 };
+
+
 
 export default AppRoutes;

@@ -1,4 +1,4 @@
-import { redirect } from "react-router-dom";
+import { redirect, RouterProvider } from "react-router-dom";
 
 import useFetchData from "./hooks/useFetchData";
 import AppRoutes from "./routes/AppRoutes";

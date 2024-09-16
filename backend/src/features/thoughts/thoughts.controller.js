@@ -26,7 +26,7 @@ export default class ThoughtsController {
             return res.status(201).send(addedThought);
         } catch (error) {
             console.log(error);
-            return res.status(200).send("something went wrong");
+            return res.status(400).send("something went wrong");
         }
 
 
@@ -39,7 +39,7 @@ export default class ThoughtsController {
             return res.status(200).send(allThoughts);
         } catch (error) {
             console.log(error);
-            return res.status(200).send("something went wrong");
+            return res.status(400).send("something went wrong");
         }
     }
 
@@ -56,7 +56,7 @@ export default class ThoughtsController {
             }
         } catch (error) {
             console.log(error);
-            return res.status(200).send("something went wrong");
+            return res.status(400).send("something went wrong");
         }
     }
 }
