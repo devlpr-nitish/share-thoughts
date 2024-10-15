@@ -13,7 +13,7 @@
 ### 2. **Authentication**
 
 - [x] Create a **Login** page.
-- [x] Create a **Signup** page.
+- [ ] Create a **Signup** page.
 - [ ] Implement authentication flow (signup, login, logout).
 - [ ] Store JWT in localStorage or cookies for session management.
 - [ ] Create a private route component to protect authenticated pages.

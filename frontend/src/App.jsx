@@ -1,5 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { authState } from "./recoil/atom";
 
 import Home from "./pages/Home";
 import ProfilePage from "./pages/ProfilePage";
@@ -10,10 +17,15 @@ import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 
 const App = () => {
+  const auth = useRecoilValue(authState);
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={auth.token ? <Home /> : <Navigate to="/login" />}
+        />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/login" element={<Login />} />
