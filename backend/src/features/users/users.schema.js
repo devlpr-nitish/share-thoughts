@@ -18,7 +18,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minLength: 8
-    }
+    },
+    subscribers:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Subscribe',
+        }
+    ]
 }, {timestamps: true})
 
 
