@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types"; // Import PropTypes for prop validation
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,8 +15,8 @@ const PasswordInput = ({ password, setPassword }) => {
       <input
         type={showPassword ? "text" : "password"}
         placeholder="Password"
-        value={password} // Make the input a controlled component
-        onChange={(e) => setPassword(e.target.value)} // Update password state on change
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         className="w-full h-[50px] border-2 outline-none border-gray-200 focus:border-blue-500 rounded-md px-2 py-1 pr-10"
       />
       <span
