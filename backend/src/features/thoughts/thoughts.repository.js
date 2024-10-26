@@ -10,7 +10,7 @@ export default class ThoughtRepository {
             return await thought.save();
         } catch (error) {
             console.log(error);
-            throw new ApplicationError("Somethin went wrong with database", 500);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
     }
 
@@ -19,7 +19,7 @@ export default class ThoughtRepository {
             return await thoughtModel.find({ user: userID });
         } catch (error) {
             console.log(error);
-            throw new ApplicationError("Somethin went wrong with database", 500);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
     }
 
@@ -64,7 +64,7 @@ export default class ThoughtRepository {
             }
         } catch (error) {
             console.log(error);
-            throw new ApplicationError("Somethin went wrong with database", 500);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
     }
 }

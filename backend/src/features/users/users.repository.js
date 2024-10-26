@@ -7,26 +7,6 @@ import { Long, ObjectId } from "mongodb";
 
 export default class UserRepository {
 
-    async signup(user) {
-        try {
-            await user.save();
-            return user;
-        } catch (error) {
-            console.log(error);
-            throw new ApplicationError("Somethin went wrong with database", 500);
-        }
-    }
-
-    async findByEmail(email) {
-
-        try {
-            return await UserModel.findOne({ email });
-        } catch (error) {
-            console.log(error);
-            throw new ApplicationError("Somethin went wrong with database", 500);
-        }
-    }
-
 
     async subscribe(userID, user, subs) {
         try {
@@ -70,7 +50,7 @@ export default class UserRepository {
             }
         } catch (error) {
             console.log(error);
-            throw new ApplicationError("Somethin went wrong with database", 500);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
     }
 
